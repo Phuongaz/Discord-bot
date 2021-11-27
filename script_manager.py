@@ -11,7 +11,7 @@ def register_command(command, description, module):
     if command in dict_commands:
         print(command_prefix + " '" + command + "' has been registered!")
     else:
-        dict_commands[command] = {"des" : description, "module": module}
+        dict_commands[command] = {"description" : description, "module": module}
         print(command_prefix +" Register command: " + command + " (" + description + ")")
 
 def get_all_command():
