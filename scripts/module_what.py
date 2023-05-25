@@ -7,8 +7,8 @@ def __load__():
     
 def get_chatbot():
     return Chatbot(config= {
-            "email": "vfkcxlgyvci@triots.com",
-            "password": "$qAFi5^P"
+            "email": EMAIL_CHATGPT,
+            "password": PASSWORD_CHATGPT,
         })
 
 async def execute(data, message, *args):
