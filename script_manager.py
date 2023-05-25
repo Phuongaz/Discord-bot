@@ -30,7 +30,7 @@ async def invoke(command, data, message):
     sys.path.append("scripts")
     call = importlib.__import__("module_%s" % get_module(command))
     args = message.content.split(" ")
-    await call.execute(data, message, args)
+    await call.execute(data, message, args[1:])
 
 def load_scripts():
     sys.path.append("scripts")

@@ -4,8 +4,8 @@ def __load__():
     script_manager.register_command("description", "Description command", "des")
 
 async def execute(data, message, *args):
-    if args[0][1] is not None:
-        des = script_manager.get_description(args[0][1])
-        await message.channel.send('Command (' + args[0][1] + "): " + des)
+    if args[0] is not None:
+        des = script_manager.get_description(args[0])
+        await message.channel.send('Command (' + args[0] + "): " + des)
         return
     await message.channel.send('Command not found')
