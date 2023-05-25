@@ -1,6 +1,5 @@
 import discord
 import script_manager
-from revChatGPT.V1 import Chatbot
 from config import *
 from modules import watch_point
 from util import number

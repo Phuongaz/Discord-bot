@@ -1,6 +1,4 @@
-import curio
 import script_manager
-import discord
 from config import *
 from modules import shopee_ship
 import asyncio

@@ -1,8 +1,6 @@
 import discord
 import script_manager
 from config import *
-from modules import listen_console
-import threading
 
 class MyClient(discord.Client):
     

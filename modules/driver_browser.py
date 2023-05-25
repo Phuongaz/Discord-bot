@@ -1,7 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver import Remote
 from selenium.webdriver.chrome.service import Service
 
 from selenium.webdriver.chrome.options import Options as ChromeOptions
