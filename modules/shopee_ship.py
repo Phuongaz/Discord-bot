@@ -14,7 +14,7 @@ async def listen_shopee(message):
     password = SHOPEE_PASSWORD
     try:
         print("Opening browser...")
-        driver = driver_browser.get_driver_ondemand()
+        driver = driver_browser.get_driver()
         url_purchases = "https://shopee.vn/user/purchase/"
         driver.get(url_purchases)
         driver.implicitly_wait(5)

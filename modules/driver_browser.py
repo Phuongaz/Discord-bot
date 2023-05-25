@@ -1,15 +1,11 @@
-import time
-from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver import Remote
 from selenium.webdriver.chrome.service import Service
 
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from config import *
 
 def get_driver_ondemand():
     options = ChromeOptions()
@@ -29,6 +25,7 @@ def get_driver_ondemand():
     return driver
 
 def get_driver():
-    service_obj = Service(r"C:\Users\BRAVO\py\auto\chromedriver.exe")
+    path = PATH_CHROME_DRIVER
+    service_obj = Service(path)
     driver = webdriver.Chrome(service=service_obj)
     return driver
