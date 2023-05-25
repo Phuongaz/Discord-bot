@@ -1,7 +1,7 @@
 import discord
 import script_manager
 from config import *
-
+from modules import module_manager
 class MyClient(discord.Client):
     
     def __init__(self, *args, **kwargs):
@@ -9,6 +9,8 @@ class MyClient(discord.Client):
 
     async def on_ready(self):
         print('Logged on as', self.user)
+        await module_manager.load_modules(self)
+        #await self.get_channel(CHANNEL_ID_GENERAL).send("Bot đã online!")
         
     async def on_message(self, message):
         try:

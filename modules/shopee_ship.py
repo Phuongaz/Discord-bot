@@ -13,13 +13,10 @@ async def listen_shopee(message):
     user_name = SHOPEE_USER_NAME
     password = SHOPEE_PASSWORD
     try:
-        print("Opening browser...")
         driver = driver_browser.get_driver()
         url_purchases = "https://shopee.vn/user/purchase/"
         driver.get(url_purchases)
         driver.implicitly_wait(5)
-        
-        print("Logging in...")
         driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div/div/div/div[2]/form/div/div[2]/div[2]/div[1]/input").send_keys(user_name)
         driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div/div/div/div[2]/form/div/div[2]/div[3]/div[1]/input").send_keys(password)
         await asyncio.sleep(10)
@@ -36,7 +33,6 @@ async def listen_shopee(message):
     rows = soup.find_all("div", {"class": "hiXKxx"})
 
     while True:
-        print("Checking items status...")
         embed = discord.Embed(title="DANH HÀNG ĐANG ĐƯỢC GIAO")
         for row in rows:
             status = row.find("div", {"class": "V+w7Xs"}).text
@@ -48,7 +44,6 @@ async def listen_shopee(message):
             if(status == "Đã hủy" or status == "Hoành thành"):
                 continue
             if name not in temp_items:
-                print("adding " + name + " to temp_items")
                 embed.add_field(name=name, value=location, inline=False)
                 temp_items[name] = location
             else:
@@ -61,7 +56,6 @@ async def listen_shopee(message):
                 
         if len(embed.fields) > 0:
             await message.channel.send(embed=embed)
-        print("Done checking items status...")
         driver.refresh()
         await asyncio.sleep(60)
 
